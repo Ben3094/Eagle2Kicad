@@ -75,6 +75,8 @@ class Symbol(object):
         for wire in node.findall("wire"):
             self.wires.append(Line(wire, converter, True, offset))
         for text in node.findall("text"):
+            if text.text == None:
+                text.text = ''
             self.texts.append(Text(text, converter, True, offset))
         for pin in node.findall("pin"):
             self.pins.append(Pin(pin, converter, True, offset))
